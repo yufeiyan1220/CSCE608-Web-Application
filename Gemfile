@@ -31,7 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'faker', '1.7.3'
-
+gem 'rack-timeout', '0.3.2'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
