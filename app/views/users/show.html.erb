@@ -1,0 +1,21 @@
+<% provide(:title, @user.name) %>
+<h2> Details about <%= @user.name %></h2>
+
+<div class="center jumbotron">
+  <ul class="list-group">
+    <li class="list-group-item">User Name: <%= @user.name%></li>
+    <li class="list-group-item">User Email: <%= @user.email%></li>
+    <li class="list-group-item">User Country: <%= @user.country%></li>
+    <li class="list-group-item">User State: <%= @user.state%></li>
+    
+    <li class="list-group-item">User Apps: <%= link_to "Inventory" %></li>
+    <li class="list-group-item"> 
+      <%= button_to 'Edit', edit_user_path(@user.id), :method => :get, class:"btn btn-outline-dark short-input"%>
+      <%= button_to 'Delete', user_path(@user.id), :method => :delete, data: { confirm: "You sure?" }, class:"btn btn-outline-dark short-input"%>
+    </li>
+    
+  </ul>
+</div>
+
+<p><%= link_to 'Back', users_path %></p>
+

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<% provide(:title, 'All platforms') %>
+
+<h1>Companies</h1>
+
+<table class="table table-hover", style="text-align:center;">
+  <thead>
+    <tr>
+      <th scope="col">Platform</th>
+      <th scope="col">Name</th>
+      <th scope="col">version</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <ul class="users">
+      <%= render @platforms %>
+    </ul>
+  </tbody>
+</table>
+
+<p><%= link_to 'New Platform', new_platform_path %></p>
+<p><%=link_to "Back to Home", root_path%></p>
+

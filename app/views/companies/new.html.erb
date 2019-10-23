@@ -1,0 +1,19 @@
+<% provide(:title, 'New company') %>
+<h1>Create New Company</h1>
+<div class="col-md-6 col-md-offset-3">
+<%= form_for(@company) do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, class: 'form-control' %>
+
+  <%= f.label :country %>
+  <%= f.text_field :country, class: 'form-control' %>
+
+  <%= f.label :number_employee %>
+  <%= f.number_field :number_employee, class: 'form-control' %>
+  
+  <%= f.submit "Create Company", class: "btn btn-primary" %>
+<% end %>
+</div>
+
+<div><%= link_to 'Back', companies_path %></div>

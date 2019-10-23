@@ -1,0 +1,30 @@
+<% provide(:title, @app.name) %>
+<h2> Details about <%= @app.name %></h2>
+
+<div class="center jumbotron">
+  <ul class="list-group">
+    <li class="list-group-item">App Name: <%= @app.name%></li>
+    <li class="list-group-item">App Type: <%= @app.app_type%></li>
+    
+    <li class="list-group-item">App Version: <%= @app.version%></li>
+    <li class="list-group-item">App Release Date: <%= @app.created_at%></li>
+    <li class="list-group-item">App Update Date: <%= @app.updated_at%></li>
+    
+    <li class="list-group-item">App company: <%= link_to @app.company.name, company_path(@app.company.id) %></li>
+    <li class="list-group-item">
+      App platforms: 
+      <%@app.platforms.each do |a|%>
+      <%= "#{a.name}:#{a.version} "%>
+      
+      <%end%>
+    </li>
+    <li class="list-group-item"> 
+      <%= button_to 'Edit', edit_app_path(@app.id), :method => :get, class:"btn btn-outline-dark short-input"%>
+      <%= button_to 'Delete', app_path(@app.id), :method => :delete, data: { confirm: "You sure?" }, class:"btn btn-outline-dark short-input"%>
+    </li>
+    
+  </ul>
+</div>
+
+<div><%= link_to 'View platforms', app_app_release_platforms_path(@app.id) %></div>
+<div><%= link_to 'Back', apps_path %></div>

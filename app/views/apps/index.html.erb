@@ -1,0 +1,23 @@
+<% provide(:title, 'All Apps') %>
+<h1>All Apps</h1>
+
+<table class="table table-hover", style="text-align:center;">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Type</th>
+      <th scope="col">release_date</th>
+      <th scope="col">Last update date</th>
+      <th scope="col">App Version</th>
+      <th scope="col">Developer Company</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ul class="users">
+      <%= render @apps %>
+    </ul>
+  </tbody>
+</table>
+
+<p><%= link_to 'New App', new_app_path %></p>
+<p><%=link_to "Back to Home", root_path%></p>

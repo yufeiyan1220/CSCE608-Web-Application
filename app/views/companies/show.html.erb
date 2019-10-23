@@ -1,0 +1,52 @@
+<% provide(:title, @company.name) %>
+<h2> Details about <%= @company.name %></h2>
+
+<div class="center jumbotron">
+  <ul class="list-group">
+    <li class="list-group-item">Company Name: <%= @company.name%></li>
+    <li class="list-group-item">Company Country: <%= @company.country%></li>
+    <li class="list-group-item">Company Employees: <%= @company.number_employee%></li>
+    <li class="list-group-item"> 
+      <%= button_to 'Edit', edit_company_path(@company.id), :method => :get, class:"btn btn-outline-dark short-input"%>
+      <%= button_to 'Delete', company_path(@company.id), :method => :delete, data: { confirm: "You sure?" }, class:"btn btn-outline-dark short-input"%>
+    </li>
+    
+  </ul>
+  
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">App_id</th>
+      <th scope="col">App name</th>
+      <th scope="col">App type</th>
+      <th scope="col">App version</th>
+      <th scope="col">Released Date</th>
+      <th scope="col">Updated Date</th>
+      <th scope="col">Platforms</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%@company.apps.each do |a|%>
+    <tr>
+      <td><%=a.id%></td>
+      <td><%=link_to a.name, app_path(a.id)%></td>
+      <td><%=a.app_type%></td>
+      <td><%=a.version%></td>
+      <td><%=a.created_at%></td>
+      <td><%=a.updated_at%></td>
+      <td>
+      <%a.platforms.each do |a|%>
+      <%= "#{a.name}:#{a.version} "%>
+      <%end%>
+      </td>
+    </tr>
+    <%end%>
+    
+    
+  </tbody>
+  </table>
+  
+  
+</div>
+
+<div><%= link_to 'Back', companies_path %></div>

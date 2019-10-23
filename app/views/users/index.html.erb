@@ -1,0 +1,22 @@
+<% provide(:title, 'All users') %>
+<h1>All users</h1>
+
+<table class="table table-hover", style="text-align:center;">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Country</th>
+      <th scope="col">State</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ul class="users">
+      <%= render @users %>
+    </ul>
+  </tbody>
+</table>
+
+<p><%=link_to "Create New User", new_user_path%></p>
+
+<p><%=link_to "Back to Home", root_path%></p>

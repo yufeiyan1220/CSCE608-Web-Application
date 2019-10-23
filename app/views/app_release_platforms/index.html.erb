@@ -1,0 +1,27 @@
+<% provide(:title, "#{@app.name}'s platforms") %>
+<h1>All platform for <%= @app.name%></h1>
+
+<table class="table table-hover", style="text-align:center;">
+  <thead>
+    <tr>
+      <th scope="col">Platform id</th>
+      <th scope="col">Platform name</th>
+      <th scope="col">Platform version</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+      <%@relation_app_platforms.each do |rap|%>
+      <tr>
+          <td><%=rap.platform.id%></td>
+          <td><%=link_to rap.platform.name, platform_path(rap.platform.id)%></td>
+          <td><%=rap.platform.version%></td>
+          
+          <td><%= link_to 'Delete', "/apps/#{@app.id}/app_release_platforms/#{rap.id}", :method => :delete, data: { confirm: "You sure?" }%></td>
+          
+      </tr>
+      <%end%>
+  </tbody>
+</table>
+<p><%= link_to "New Platform for #{@app.name}", new_app_app_release_platform_path %></p>
+<div><%= link_to 'Back', apps_path %></div>

@@ -1,0 +1,21 @@
+<h1>Editing Company</h1>
+<% provide(:title, @company.name) %>
+
+<h1>Update your profile</h1>
+<h2> Edit <%= @company.name %></h2>
+
+<div class="col-md-6 col-md-offset-3">
+  <%= form_for(@company) do |f| %>
+  
+  <%= f.label :name %>
+  <%= f.text_field :name, :disabled => true %>
+  <%= f.label :country %>
+  <%= f.text_field :country%>
+  <%= f.label :number_employee %>
+  <%= f.number_field  :number_employee %>
+  
+  <%= f.submit "Update company", class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+<div><%= link_to 'Back', companies_path %></div>

@@ -1,0 +1,19 @@
+<% provide(:title, 'App Home') %>
+<div class="jumbotron">
+  <h1 class="display-4">App repository</h1>
+  <p class="lead">The Home page of App repository.</p>
+  <hr class="my-4">
+  <p>
+  <%= button_to 'Users', users_path(), :method => :get, class:"btn btn-outline-dark short-input"%>
+  </p>
+  <p>
+  <%= button_to 'Apps', apps_path(), :method => :get, class:"btn btn-outline-dark short-input"%>
+  </p>
+   <p>
+  <%= button_to 'Companies', companies_path(), :method => :get, class:"btn btn-outline-dark short-input"%>
+  </p>
+     <p>
+  <%= button_to 'Platform', platforms_path(), :method => :get, class:"btn btn-outline-dark short-input"%>
+  </p>
+</div>
+
