@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191023184433) do
+ActiveRecord::Schema.define(version: 20191024144920) do
 
   create_table "app_release_platforms", force: :cascade do |t|
     t.integer "app_id", null: false
@@ -44,6 +44,28 @@ ActiveRecord::Schema.define(version: 20191023184433) do
     t.string "version"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "purchase_items", force: :cascade do |t|
+    t.integer "used_times", default: 0
+    t.float "price"
+    t.integer "app_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["app_id"], name: "index_purchase_items_on_app_id"
+    t.index ["user_id"], name: "index_purchase_items_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "app_id", null: false
+    t.integer "star"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["app_id"], name: "index_reviews_on_app_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

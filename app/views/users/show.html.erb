@@ -15,7 +15,70 @@
     </li>
     
   </ul>
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">App name</th>
+      <th scope="col">App type</th>
+      <th scope="col">App version</th>
+      <th scope="col">Purchase Date</th>
+      <th scope="col">Platforms</th>
+      <th scope="col">Used Times</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <%@user.purchase_items.each do |a|%>
+    <tr>
+      <td><%=link_to a.app.name, app_path(a.app.id)%></td>
+      <td><%=a.app.app_type%></td>
+      <td><%=a.app.version%></td>
+      <td><%=a.created_at%></td>
+
+      <td>
+      <%a.app.platforms.each do |a|%>
+      <%= "#{a.name}:#{a.version} "%>
+      <%end%>
+      </td>
+      <td><%=a.used_times%></td>
+      <td><%= link_to 'Use app', use_purchase_item_path(a.id)%></td>
+      <td><%= link_to 'Delete app', use_purchase_item_path(a.id)%></td>
+    </tr>
+    <%end%>
+    
+  </tbody>
+  </table>
+  
+ <div><%= link_to 'Purchase Items', purchase_items_path(user_id: @user.id) %></div>  
+ 
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Reviewed App</th>
+      <th scope="col">Reviewed Star</th>
+      <th scope="col">Reviewed Comment</th>
+      
+    </tr>
+  </thead>
+  
+  <tbody>
+    <%@user.reviews.each do |a|%>
+    <tr>
+      <td><%=link_to a.app.name, app_path(a.app.id)%></td>
+      <td><%=a.star%></td>
+      <td><%=a.comment%></td>
+      <td><%= button_to 'Delete', review_path(a.id), :method => :delete, data: { confirm: "You sure?" }, class:"btn btn-outline-dark short-input"%></td>
+      
+    </tr>
+    <%end%>
+    
+  </tbody>
+  </table>
+ <div><%= link_to 'Add reviews', new_review_path(user_id: @user.id) %></div>  
 </div>
+
+
+
 
 <p><%= link_to 'Back', users_path %></p>
 

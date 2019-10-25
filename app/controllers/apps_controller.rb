@@ -60,6 +60,7 @@ class AppsController < ApplicationController
     @app = App.find(params[:id])
     @app.destroy
     flash[:success] = "App '#{@app.name}' deleted."
+    redirect_to apps_path
   end
 
   private

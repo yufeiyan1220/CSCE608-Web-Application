@@ -1,0 +1,27 @@
+<% provide(:title, 'Reviews') %>
+<h1>All Reviews</h1>
+
+<table class="table table-hover", style="text-align:center;">
+  <thead>
+    <tr>
+      <th scope="col">User</th>
+      <th scope="col">App</th>
+      <th scope="col">Star</th>
+      <th scope="col">Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%@reviews.each do |rev|%>
+    <tr>
+      <td><%= link_to rev.user.name, rev.user %></td>
+      <td><%= link_to rev.app.name, rev.app %></td>
+      <td><%= rev.star %></td>
+      <td><%= rev.comment %></td>
+    </tr>
+    
+    <%end %>
+  </tbody>
+</table>
+
+<div><%= link_to 'Add reviews', new_review_path() %></div>  
+<div><%=link_to "Back to Home", root_path%></div>

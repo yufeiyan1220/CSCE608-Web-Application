@@ -1,0 +1,32 @@
+<% provide(:title, 'Purchase Apps') %>
+<h1>All Apps for <%=@user.name%></h1>
+
+<table class="table table-hover", style="text-align:center;">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Type</th>
+      <th scope="col">release_date</th>
+      <th scope="col">Last update date</th>
+      <th scope="col">App Version</th>
+      <th scope="col">Developer Company</th>
+      <th scope="col">Purchase</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%@apps.each do |app|%>
+    <tr>
+      <td><%= link_to app.name, app %></td>
+      <td><%= app.app_type %></td>
+      <td><%= app.created_at %></td>
+      <td><%= app.updated_at %></td>
+      <td><%= app.version %></td>
+      <td><%= app.company.name %></td>
+      <td><%= link_to "purchase", new_purchase_item_path(user_id: @user.id, app_id: app.id)%></td>
+    </tr>
+    
+    <%end %>
+  </tbody>
+</table>
+
+<div><%=link_to "Back to Home", root_path%></div>
