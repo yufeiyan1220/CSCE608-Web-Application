@@ -4,7 +4,7 @@ class PurchaseItemsController < ApplicationController
     
     if user_id
       @user = User.find(user_id)
-      @apps = App.all
+      @apps = App.paginate(page: params[:page])
     else
       redirect_to users_path
     end

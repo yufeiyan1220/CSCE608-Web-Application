@@ -1,6 +1,6 @@
 <% provide(:title, 'Reviews') %>
 <h1>All Reviews</h1>
-
+<%= will_paginate %>
 <table class="table table-hover", style="text-align:center;">
   <thead>
     <tr>
@@ -22,6 +22,6 @@
     <%end %>
   </tbody>
 </table>
-
+<%= will_paginate %>
 <div><%= link_to 'Add reviews', new_review_path() %></div>  
 <div><%=link_to "Back to Home", root_path%></div>

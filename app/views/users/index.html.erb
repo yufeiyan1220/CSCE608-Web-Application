@@ -1,6 +1,6 @@
 <% provide(:title, 'All users') %>
 <h1>All users</h1>
-
+<%= will_paginate %>
 <table class="table table-hover", style="text-align:center;">
   <thead>
     <tr>
@@ -16,7 +16,7 @@
     </ul>
   </tbody>
 </table>
-
+<%= will_paginate %>
 <p><%=link_to "Create New User", new_user_path%></p>
 
 <p><%=link_to "Back to Home", root_path%></p>

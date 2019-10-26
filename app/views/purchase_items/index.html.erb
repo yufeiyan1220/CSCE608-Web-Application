@@ -1,6 +1,6 @@
 <% provide(:title, 'Purchase Apps') %>
 <h1>All Apps for <%=@user.name%></h1>
-
+<%= will_paginate %>
 <table class="table table-hover", style="text-align:center;">
   <thead>
     <tr>
@@ -28,5 +28,5 @@
     <%end %>
   </tbody>
 </table>
-
+<%= will_paginate %>
 <div><%=link_to "Back to Home", root_path%></div>

@@ -1,6 +1,6 @@
 <% provide(:title, 'All Apps') %>
 <h1>All Apps</h1>
-
+<%= will_paginate %>
 <table class="table table-hover", style="text-align:center;">
   <thead>
     <tr>
@@ -18,6 +18,6 @@
     </ul>
   </tbody>
 </table>
-
+<%= will_paginate %>
 <p><%= link_to 'New App', new_app_path %></p>
 <p><%=link_to "Back to Home", root_path%></p>
