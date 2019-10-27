@@ -45,7 +45,7 @@ end
   app_type = app_types.sample
   
   company = Company.all.sample
-  app_platforms = AppReleasePlatform.all.sample(3)
+  app_platforms = Platform.all.sample(3)
   
   cur_app = App.create(name: name, 
               version: version, 
