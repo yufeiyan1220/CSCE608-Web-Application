@@ -39,13 +39,13 @@ end
 end
 
 #init app
-100.times do |n|
+500.times do |n|
   name  = Faker::App.name
   version = Faker::App.version
   app_type = app_types.sample
   
   company = Company.all.sample
-  app_platforms = Platform.all.sample(3)
+  app_platforms = Platform.all.sample(rand(1..7))
   
   cur_app = App.create(name: name, 
               version: version, 
@@ -72,9 +72,6 @@ User.all.each do |user|
                 comment: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4)
       )
   end
-  
-  
-  
   
 end
 
